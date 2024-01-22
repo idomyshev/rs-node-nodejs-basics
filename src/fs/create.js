@@ -1,11 +1,12 @@
 import { writeFile } from "fs/promises";
-import { getCurrentDirPath } from "../utils/index.js";
+import { generatePath, getCurrentDirPath } from "../utils/index.js";
 import { fsErrorText } from "../settings/index.js";
 
 const create = async () => {
   const dirPath = getCurrentDirPath(import.meta.url);
 
-  const filePath = `${dirPath}/files/fresh.txt`;
+  const filePath = generatePath(dirPath, "files/fresh.txt");
+
   const content = "I am fresh and young";
 
   try {

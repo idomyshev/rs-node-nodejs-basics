@@ -1,10 +1,11 @@
 import { unlink } from "fs/promises";
-import { getCurrentDirPath } from "../utils/index.js";
+import { generatePath, getCurrentDirPath } from "../utils/index.js";
 import { fsErrorText } from "../settings/index.js";
 
 const remove = async () => {
   const dirPath = getCurrentDirPath(import.meta.url);
-  const filePath = `${dirPath}/files/fileToRemove.txt`;
+
+  const filePath = generatePath(dirPath, "files/fileToRemove.txt");
 
   try {
     await unlink(filePath);

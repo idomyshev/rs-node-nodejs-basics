@@ -1,10 +1,10 @@
 import { readFile } from "fs/promises";
-import { getCurrentDirPath } from "../utils/index.js";
+import { generatePath, getCurrentDirPath } from "../utils/index.js";
 import { fsErrorText } from "../settings/index.js";
 
 const read = async () => {
   const dirPath = getCurrentDirPath(import.meta.url);
-  const file = `${dirPath}/files/fileToRead.txt`;
+  const file = generatePath(dirPath, "files/fileToRead.txt");
 
   try {
     const data = await readFile(file, "utf8");
